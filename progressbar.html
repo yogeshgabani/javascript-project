@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress bar</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        background: linear-gradient(#ff3cac, #784ba0, #2b86c5);        
+    }
+    .container {
+        text-align: center;
+    }
+    .progress-container {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 30px;
+        max-height: 100%;
+        width: 350px;
+
+    }
+    .progress-container::before {
+        content: "";
+        background-color: #e0e0e0;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        height: 4px;
+        width: 100%;
+        z-index: -1;
+    }
+    .progress {
+        background-color: #d23737;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        height: 4px;
+        width: 0%;
+        z-index: -1;
+        transition: 0.4s ease;
+    }
+    .circle {
+        border-radius: 50%;
+        background-color: #fff;
+        color: #999;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid #e0e0e0;
+        transition: 0.5s ease;
+    }
+    .circle.active {
+        border-color: #d23737;
+    }
+    .btn {
+        background-color: #d23737;
+        color: #fff;
+        border: 0;
+        padding: 8px 30px;
+        margin: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .btn:active {
+        transform: scale(0.98);
+    }
+    .btn:disabled {
+        background-color: #e0e0e0;
+        cursor: not-allowed;
+    }
+
+</style>
+<body>
+
+    <div class="container">
+        <div class="progress-container">
+            <div class="progress" id="progress"></div>
+            <div class="circle active">1</div>
+            <div class="circle">2</div>
+            <div class="circle">3</div>
+            <div class="circle">4</div>
+            <div class="circle">5</div>
+
+        </div>
+        <button class="btn" id="prev">Previous</button>
+        <button class="btn" id="next">Next</button>
+    </div>
+    
+</body>
+</html>
+
+
+<script>
+    let progress = document.getElementById('progress');
+    let prevbtn = document.getElementById('prev');
+    let nextbtn = document.getElementById('next');
+    let circle = document.querySelectorAll('.circle');
+    console.log(progress);
+    console.log(prevbtn);
+    console.log(nextbtn);
+    console.log(circle);
+
+    let activeindex = 1;
+nextbtn.addEventListener('click', () => {
+    activeindex++;
+    if (activeindex > circle.length) {
+            activeindex = circle.length;
+        }
+        update();
+    
+})
+
+prevbtn.addEventListener('click', () => {
+    activeindex--;
+    if (activeindex < 1) {
+            activeindex = 1;
+        }
+        update();
+    
+})
+
+    function update() {
+        circle.forEach((circle,index) => {
+            if (index < activeindex) {
+                circle.classList.add('active');
+            }
+            else {
+                circle.classList.remove('active');
+            }
+        });
+        let active = document.querySelectorAll('.active');
+        progress.style.width = (active.length -1) / (circle.length - 1) * 100 + '%';
+
+        if (activeindex === 1) {
+            prevbtn.disabled = true;
+        }
+        else if (activeindex === circle.length) {
+            nextbtn.disabled = true;
+        }
+        else {
+            prevbtn.disabled = false;
+            nextbtn.disabled = false;
+        }
+    }
+</script>

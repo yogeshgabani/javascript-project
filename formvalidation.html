@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        >
+        <title>form validation</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div style="display: flex; justify-content: center;">
+            <div style=" width: 500px;">
+                <h2>create account</h2>
+                <div class="form-field ">
+                    <label for="" style="padding-bottom: 10px; padding-top: 5px;">username</label>
+                    <input type="text" id="username" placeholder="username">
+                    <i class="fa-solid"></i>
+                    <span></span>
+                </div>
+                <div class="form-field">
+                    <label for="" style="padding-bottom: 10px; padding-top: 5px;">email</label>
+                    <input type="email" id="email" placeholder="email">
+                    <i class="fa-solid "></i>
+                    <i class="fa-solid"></i>
+                    <span></span>
+                </div>
+                <div class="form-field">
+                    <label for="" style="padding-bottom: 10px; padding-top: 5px;">password</label>
+                    <input type="password" id="password1" placeholder="password">
+                    <i class="fa-solid"></i>
+                    <span></span>
+                </div>
+                <div class="form-field">
+                    <label for="" style="padding-bottom: 10px; padding-top: 5px;">confirm password</label>
+                    <input type="password" id="password2" placeholder="password">
+                    <i class="fa-solid"></i>
+                    <span></span>
+                </div>
+                <input
+                    style="padding: 10px 0; margin-top: 10px;"
+                    type="submit"
+                    id="submit"
+                    value="submit"
+                >
+            </div>
+        </div>
+        <div>
+            
+            <button id="hello">hello</button>
+        </div>
+        <div>
+            <button class="" onclick="add()">add field</button>
+            <button class="" onclick="remove()">remove field</button>
+            <div id="input"></div>
+        </div>
+
+        <div class="container">
+            <button class="add-button" onclick="addFn()">Add Input Fields</button>
+            <div id="inputFields">
+            </div>
+        </div>
+
+
+    </body>
+</html>
+<script>
+    document.getElementById("submit").addEventListener("click", function (e) {
+        e.preventDefault();
+        checkdata()
+    })
+let username = document.getElementById('username');
+let email = document.getElementById('email');
+let password1 = document.getElementById('password1');
+let password2 = document.getElementById('password2');
+
+    function checkdata() {
+        var usernamevalue = username.value.trim();
+        var emailvalue = email.value.trim();
+        var password1value = password1.value.trim();
+        var password2value = password2.value.trim();
+        // alert(usernamevalue)
+        if (usernamevalue == '') {
+            setError(username, "username not be blank");
+        }
+        else {
+            setSuccess(username);
+        }
+        if (emailvalue == '') {
+            setError(email, "email not be blank");
+        }
+        else if (!validateEmail(emailvalue)) {
+            setError(email, 'email valid mail id')
+        }
+        else {
+            setSuccess(email);
+        }
+        if (password1value == '') {
+            setError(password1, "password not be blank");
+        }
+        else {
+            setSuccess(password1);
+        }
+        if (password2value == '') {
+            setError(password2, "password not be blank");
+        }
+        else if (password1value !== password2value) {
+            setError1(password1, "password not same");
+            setError1(password2, "password not same");
+        }
+        else {
+            setSuccess(password2);
+        }
+
+    }
+    function validateEmail(email) {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+    function setError(u,msg) {
+        // console.log(u)
+        // console.log(u.parentElement);
+    
+        let parent = u.parentElement.classList.add('error');
+        var span = u.parentElement.querySelector('span');
+        var fa = u.parentElement.querySelector('i').classList.add('fa-circle-exclamation');
+        console.log(fa)
+
+        span.innerText = msg;
+        
+    }
+    function setSuccess(u) {
+        let parent = u.parentElement.classList.add('success');
+        let parent1 = u.parentElement.classList.remove('error');
+        var fa = u.parentElement.querySelector('i').classList.add('fa-circle-check');
+    }
+</script>
+
+<script>
+    let call = document.getElementById('hello').addEventListener('click', function() {
+        console.log('fvfvfv')
+    })
+    console.log(call)
+    let dr = document.getElementById('hello');
+    dr.addEventListener('click', seterrore)
+    function seterrore() {
+        alert('hello')
+    }
+
+    function add() {
+        var x = document.getElementById('input');
+        // var y = document.createElement('div')
+        var z = document.createElement('input')
+        z.setAttribute('type', 'text');
+        z.setAttribute('placeholder', 'enter value input');
+        z.classList.add('input-field');
+        // y.appendChild(z)
+        x.appendChild(z);
+    }
+    function remove() {
+        var container = document.getElementById('input');
+    var inputs = container.getElementsByClassName('input-field');
+    if (inputs.length > 0) {
+        container.removeChild(inputs[inputs.length - 1]);
+    }
+}
+function addFn() {
+        const divEle = document.getElementById("inputFields");
+        divEle.innerHTML += `
+    <div>
+      <input type="text" placeholder="Enter value" class="input-field">
+      <input type="text" placeholder="Enter value" class="input-field">
+      <p class="get">fvfvfvfvf</p>
+    </div>
+  `;
+    }
+</script>

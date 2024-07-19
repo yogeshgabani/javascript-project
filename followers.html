@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Followers</title>
+</head>
+
+<style>
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .card {
+        border: 2px solid black;
+        padding: 20px;
+        width: 30%;
+        height: 30%;
+        cursor: pointer;
+        transition: all 0.5s;
+    }
+    .card:hover {
+        box-shadow: 1px 1px 5px 0px;
+        transform: scale(1.1);
+    }
+    .container {
+        margin: 0 auto;
+        text-align: center;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    .follower {
+        font-size: 80px;
+        margin-top: 40px;
+        margin-bottom: 24px;
+    }
+    .counters {
+        padding: 48px 32px;
+        background: #4193ff;
+        color: #fff;
+        text-align: center;
+    }
+    .counters > div {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4rem 2rem;
+    }
+    .counter {
+        position: relative;
+    }
+    .counter h1 {
+        font-size: 48px;
+        margin-bottom: 8px;
+    }
+    .counter:not(:last-child)::before {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        width: 2px;
+        height: 3rem;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -1rem;
+    }
+</style>
+<body>
+
+    <div class="main">
+        <div class="container card">
+            <h1>facebook</h1>
+            <div class="follower" data-target="9000">
+                
+            </div>
+        </div>
+        <div class="container card">
+            <h1>youtube</h1>
+            <div class="follower" data-target="15000">      
+            </div>
+        </div>
+    </div>
+    <div class="counters">
+        <div>
+            <div class="counter">
+                <h1><span data-target="156">0</span></h1>
+                <h3>Project completed</h3>
+            </div>
+            <div class="counter">
+                <h1><span data-target="227">0</span></h1>
+                <h3>satisfied customer</h3>
+            </div>
+            <div class="counter">
+                <h1><span data-target="91">0</span>%</h1>
+                <h3>Success rate</h3>
+            </div>
+            <div class="counter">
+                <h1><span data-target="30">0</span>+</h1>
+                <h3>years experiance</h3>
+            </div>
+        </div>
+    </div>
+   
+    
+</body>
+</html>
+
+<script>
+    var followers = document.querySelectorAll('.follower');
+    console.log(followers)
+    followers.forEach(followersCounter => {
+        followersCounter.innerHTML = 0;
+        let update = () => {
+            const target = +followersCounter.getAttribute('data-target');
+            const c = +followersCounter.innerText;
+            const increment = target / 500;
+            if (c < target) {
+                followersCounter.innerHTML = `${Math.ceil(c + increment)}`
+                setTimeout(update, 1);
+            }
+            else {
+                followersCounter.innerText = target;
+            }
+        };
+        update();
+    })
+
+    const counter = document.querySelectorAll('.counters span');
+    const  contain = document.querySelector('.counters');
+    let activated = false;
+    window.addEventListener('scroll', () => {
+        if(pageYOffset > contain.offsetTop - contain.offsetHeight - 200 && activated === false) {
+            counter.forEach(counter => {
+                counter.innerText = 0;
+                let count = 0;
+
+                function updatecount() {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    if (count < target) {
+                        count++;
+                        counter.innerText = count;
+                        setTimeout(updatecount, 30);
+                    }
+                    else {
+                        counter.innerText = target;
+                    }
+                }
+                updatecount();
+                activated = true;
+            });
+        }
+        else if (pageYOffset < contain.offsetTop - contain.offsetHeight - 500 || pageYOffset === 0 && activated === true) {
+            counter.forEach(counter => {
+                counter.innerText = 0;
+            });
+            activated = false;
+        }
+    })
+</script>

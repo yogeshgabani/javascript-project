@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>select menu with search bar</title>
+    </head>
+    <style>
+    body {
+        background: #44aabc;
+
+    }
+    .container {
+        width: 300px;
+        margin: 100px auto 0;
+
+    }
+    .select-option {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        padding: 18px;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+    }
+    .list-search {
+        background-color: #fff;
+        margin-top: 15px;
+        padding: 20px;
+        border-radius: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        display: none;
+
+    }
+    .container.active .list-search {
+        display: block;
+    }
+    .search-box input {
+        outline: none;
+        width: 100%;
+        height: 30px;
+        border: 1px solid #d3cbcb;
+    }
+    .search-box input:focus {
+        border: 2px solid #44aabc;
+    }
+    .list {
+        margin-top: 10px;
+        max-height: 250px;
+        overflow: auto;
+        padding-right: 7px;
+        list-style: none;
+        padding-left: 0;
+    }
+    .list li {
+        padding: 10px 15px;
+        height: 25px;
+        font-size: 21px;
+        display: flex;
+        align-items: center;
+    }
+    .list li:hover, li.selected{
+    border-radius: 5px;
+    background: #f2f2f2;
+}
+    </style>
+    <body>
+        <div class="container">
+            <div class="select-option">
+                <span>Select Country</span>
+            </div>
+            <div class="list-search">
+                <div class="search-box">
+                    <input type="text" id="search" placeholder="search here...">
+                </div>
+                <ul class="list">
+                    <li class="list-item">country1</li>
+                    <li class="list-item">country2</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+
+        let countries = ["Afghanistan", "Algeria", "Argentina", "Australia", "Bangladesh", "Belgium", "Bhutan",
+                 "Brazil", "Canada", "China", "Denmark", "Ethiopia", "Finland", "France", "Germany",
+                 "Hungary", "Iceland", "India", "Indonesia", "Iran", "Italy", "Japan", "Malaysia",
+                 "Maldives", "Mexico", "Morocco", "Nepal", "Netherlands", "Nigeria", "Norway", "Pakistan",
+                 "Peru", "Russia", "Romania", "South Africa", "Spain", "Sri Lanka", "Sweden", "Switzerland",
+                 "Thailand", "Turkey", "Uganda", "Ukraine", "United States", "United Kingdom", "Vietnam"];
+        let container = document.querySelector('.container');
+        let selectBtn = container.querySelector('.select-option');
+        let dropDownList = container.querySelector('.list-search');
+        let searchInput = container.querySelector("#search");
+        let lists = dropDownList.querySelector('.list');
+
+        selectBtn.addEventListener('click',()=>{
+            container.classList.toggle('active');
+        })      
+
+        function addCountry(selectedCountry){
+            lists.innerHTML = "";    
+            countries.forEach((country)=>{
+            let isSelected = selectedCountry==country?"selected":"";
+            let listItem = '<li class="'+ isSelected +'">' + country + '</li>';
+            lists.insertAdjacentHTML('beforeend',listItem);
+            })
+            addClickEventToLi();
+         }
+        addCountry();
+
+function addClickEventToLi(){
+    lists.querySelectorAll('li').forEach(listItem=>{
+        listItem.addEventListener('click',()=>{
+            updateSelectCountry(listItem);
+        })
+    })
+}
+
+
+function updateSelectCountry(listItem){
+    searchInput.value = "";
+    selectBtn.firstElementChild.innerHTML = listItem.innerHTML;
+    container.classList.remove('active'); 
+    addCountry(listItem.innerHTML);   
+}
+
+searchInput.addEventListener('keyup',()=>{
+    let searchInpVal = searchInput.value.toLowerCase();
+    let filteredCountries = countries.filter(country=>{
+        return country.toLocaleLowerCase().startsWith(searchInpVal);
+    }).map(country=>{        
+        return '<li>' + country + '</li>';
+    }).join("");
+    lists.innerHTML = filteredCountries;
+    addClickEventToLi();  
+})
+</script>

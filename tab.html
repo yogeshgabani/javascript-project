@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab html</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        width: 100%;
+        max-width: 600px;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 30px;
+    }
+    li a {
+        color: #a4a4a4;
+        text-decoration: none;
+        padding-bottom: 4px;
+    }
+    li a:hover {
+        border-bottom: 3px solid blueviolet;
+    }
+    .wrapper_tab-content {
+        position: relative;
+    }
+    .tab-content {
+        position: absolute;
+        padding: 1.75rem 0;
+        visibility: hidden;
+        height: 0;
+    }
+
+    .tab-content h1 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .content-visible {
+        position: static;
+        visibility: inherit;
+        height: auto;
+    }
+    .active {
+        color: #444;
+        padding-bottom: 4px;
+        border-bottom: 3px solid blueviolet;
+    }
+</style>
+<body>
+    <section class="container">
+        <ul class="tabs">
+            <li class="tab-item">
+                <a href="" id="tab-one" class="active">HTML</a>
+            </li>
+            <li class="tab-item">
+                <a href="" id="tab-two" class="">CSS</a>
+            </li>
+            <li class="tab-item">
+                <a href="" id="tab-three" class="">JAVA</a>
+            </li>
+            <li class="tab-item">
+                <a href="" id="tab-four" class="">BOOTSTRAP</a>
+            </li>
+            <li class="tab-item">
+                <a href="" id="tab-five" class="">REACT</a>
+            </li>
+        </ul>
+        <div class="wrapper_tab-content">
+            <article class="tab-content content-visible" id="tab-one-content">
+                <h1>html</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo pariatur omnis maiores sit ea aut eaque possimus blanditiis quibusdam laborum voluptas nihil at molestias ullam, sint adipisci ex! Cupiditate, laudantium soluta. Voluptatum quidem ullam placeat. Dolorum suscipit porro ut dolorem quisquam doloribus voluptates molestiae libero odit deserunt officiis voluptatibus numquam a voluptatum repudiandae commodi, asperiores quae nobis deleniti explicabo perferendis ab eos quibusdam! Excepturi praesentium et molestias saepe ullam quas minus sint dolore in a ipsa repellat magnam accusamus corporis, voluptas veniam nisi explicabo distinctio ad reiciendis! Vero sit praesentium eos accusantium quam tenetur et officia nobis. Culpa, minima voluptas?</p>
+            </article>
+            <article class="tab-content" id="tab-two-content">
+                <h1>css</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo pariatur omnis maiores sit ea aut eaque possimus blanditiis quibusdam laborum voluptas nihil at molestias ullam, sint adipisci ex! Cupiditate, laudantium soluta. Voluptatum quidem ullam placeat. Dolorum suscipit porro ut dolorem quisquam doloribus voluptates molestiae libero odit deserunt officiis voluptatibus numquam a voluptatum repudiandae commodi, asperiores quae nobis deleniti explicabo perferendis ab eos quibusdam! Excepturi praesentium et molestias saepe ullam quas minus sint dolore in a ipsa repellat magnam accusamus corporis, voluptas veniam nisi explicabo distinctio ad reiciendis! Vero sit praesentium eos accusantium quam tenetur et officia nobis. Culpa, minima voluptas?</p>
+            </article>
+            <article class="tab-content" id="tab-three-content">
+                <h1>java</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo pariatur omnis maiores sit ea aut eaque possimus blanditiis quibusdam laborum voluptas nihil at molestias ullam, sint adipisci ex! Cupiditate, laudantium soluta. Voluptatum quidem ullam placeat. Dolorum suscipit porro ut dolorem quisquam doloribus voluptates molestiae libero odit deserunt officiis voluptatibus numquam a voluptatum repudiandae commodi, asperiores quae nobis deleniti explicabo perferendis ab eos quibusdam! Excepturi praesentium et molestias saepe ullam quas minus sint dolore in a ipsa repellat magnam accusamus corporis, voluptas veniam nisi explicabo distinctio ad reiciendis! Vero sit praesentium eos accusantium quam tenetur et officia nobis. Culpa, minima voluptas?</p>
+            </article>
+            <article class="tab-content" id="tab-four-content">
+                <h1>bootstrap</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo pariatur omnis maiores sit ea aut eaque possimus blanditiis quibusdam laborum voluptas nihil at molestias ullam, sint adipisci ex! Cupiditate, laudantium soluta. Voluptatum quidem ullam placeat. Dolorum suscipit porro ut dolorem quisquam doloribus voluptates molestiae libero odit deserunt officiis voluptatibus numquam a voluptatum repudiandae commodi, asperiores quae nobis deleniti explicabo perferendis ab eos quibusdam! Excepturi praesentium et molestias saepe ullam quas minus sint dolore in a ipsa repellat magnam accusamus corporis, voluptas veniam nisi explicabo distinctio ad reiciendis! Vero sit praesentium eos accusantium quam tenetur et officia nobis. Culpa, minima voluptas?</p>
+            </article>
+            <article class="tab-content" id="tab-five-content">
+                <h1>react js</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo pariatur omnis maiores sit ea aut eaque possimus blanditiis quibusdam laborum voluptas nihil at molestias ullam, sint adipisci ex! Cupiditate, laudantium soluta. Voluptatum quidem ullam placeat. Dolorum suscipit porro ut dolorem quisquam doloribus voluptates molestiae libero odit deserunt officiis voluptatibus numquam a voluptatum repudiandae commodi, asperiores quae nobis deleniti explicabo perferendis ab eos quibusdam! Excepturi praesentium et molestias saepe ullam quas minus sint dolore in a ipsa repellat magnam accusamus corporis, voluptas veniam nisi explicabo distinctio ad reiciendis! Vero sit praesentium eos accusantium quam tenetur et officia nobis. Culpa, minima voluptas?</p>
+            </article>
+
+        </div>
+
+    </section>
+    
+</body>
+</html>
+
+<script>
+   function gettab(e) {
+        const activeTab = document.querySelector('.active');
+        const visibleContent = document.querySelector('.content-visible');
+
+        if (activeTab) {
+            activeTab.classList.remove('active');
+        }
+        if (visibleContent) {
+            visibleContent.classList.remove('content-visible');
+        }
+
+        const tabContentId = e.id + '-content';
+        const tabContent = document.getElementById(tabContentId);
+
+        e.classList.add('active');
+        tabContent.classList.add('content-visible');
+    }
+
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.tab-item a')) {
+            e.preventDefault();
+            gettab(e.target);
+        }
+    });
+</script>

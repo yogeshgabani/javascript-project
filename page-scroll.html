@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>page scroll</title>
+    </head>
+    <style>
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        padding: 0;
+        margin: 0;
+        background-color: blanchedalmond;
+    }
+    .content {
+        padding: 4rem;
+    }
+    section {
+        border: 2px solid rgb(136, 4, 48);
+        padding: 20px;
+        margin: 20px 0;
+    }
+    section h1 {
+        margin: 10px 0;
+    }
+    .scroll-indicator {
+        height: 5px;
+        width: calc(100% - 6em);
+        position: fixed;
+        top: 10px;
+        left: 3em;
+        border-radius: 3px;
+
+    }
+    .scroll-indicator .progress {
+        height: 100%;
+        width: 0;
+        border-radius: 3px;
+        background: linear-gradient(30deg, #21d4fd, #b721ff);
+        transition: width 0.1s;
+    }
+    .to-top {
+        background-color: #fff;
+        position: fixed;
+        bottom: 16px;
+        right: 32px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        color: #1f1f1f;
+        text-decoration: none;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+    }
+    .to-top.active {
+        bottom: 32px;
+        pointer-events: auto;
+        opacity: 1;
+    }
+    .to-top:hover {
+        background: burlywood;
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: .5s all;
+    }
+    .to-top:hover p {
+        color: #fff;
+        transform: scale(1.1);
+        font-size: 30px;
+        transition: 0.5s all;
+    }
+    </style>
+    <body>
+        <div class="content">
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+            <section>
+                <h1>Title</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequuntur, aperiam repellendus sunt quibusdam rem enim atque neque. Facere, quidem illum deleniti reprehenderit fuga aperiam voluptate quas nisi eius omnis numquam excepturi exercitationem necessitatibus repellendus a sequi rem porro, earum aut voluptatum mollitia odit. Libero illum aperiam ipsum odio nesciunt, accusamus rem saepe enim id ipsa a laborum animi. Ad quod natus voluptas, quibusdam earum corporis numquam. Aut deserunt libero laboriosam doloremque id omnis, veritatis nesciunt voluptatem reiciendis facere exercitationem. Aut ducimus corrupti eveniet consequuntur natus eaque nihil dolore accusamus. Commodi saepe, non voluptas dicta magni repellat doloremque, laborum cum ipsam esse consequatur a nulla at nemo beatae. Adipisci tempore ullam hic consectetur possimus veniam blanditiis quis, ad cumque odit quam labore tempora aliquam dolorum asperiores laborum, accusantium corrupti aut quo nulla fugiat voluptatem in nesciunt eligendi! Minima officiis voluptatem quos necessitatibus eum porro doloribus similique cum repudiandae? Minus est nesciunt assumenda mollitia voluptate tempora ratione sunt cupiditate? Vero explicabo perspiciatis, quam animi sed nisi assumenda rerum maiores id at vitae doloremque quo nulla nesciunt error ad repellat inventore ex aut. Voluptatibus repellat laborum quod similique reprehenderit commodi assumenda ipsam omnis tempore enim, tempora temporibus saepe mollitia consectetur voluptas eaque.</p>
+            </section>
+        </div>
+        <div class="scroll-indicator">
+            <div class="progress"></div>
+        </div>
+        <div class="to-top" onclick="scrolltop()">
+            <p style="font-size: 20px;">&#11165;</p>
+        </div>
+    </body>
+</html>
+<script>
+    
+    window.addEventListener('scroll', () => {
+        let indicator = document.querySelector('.scroll-indicator .progress')
+        console.log(indicator)
+        let scroll = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrollup = document.documentElement.scrollTop;
+        let scrolled = (scrollup / scroll) * 100;
+        indicator.style.width = `${scrolled}%`;
+    })
+
+    window.addEventListener('scroll', () => {
+        let scroll = document.querySelector('.to-top');
+        if (window.pageYOffset > 100) {
+            scroll.classList.add('active');
+        }
+        else {
+            scroll.classList.remove('active')
+        }
+    })
+    function scrolltop() {
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+        });
+    }
+</script>
