@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image slider</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body {
+        height: 100vh;
+        background: linear-gradient(135deg, #8052ec, #d161ff);
+    }
+    .container {
+        background-color: #fff;
+        width: 60%;
+        min-width: 520px;        
+        padding: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    .img-container {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid #000;
+        border-radius: 80px;
+    }
+    img {
+        position: relative;
+        width: 100%;
+        display: none;
+        border-radius: 8px;
+    }
+    .active {
+        display: block;
+    }
+    .dot-btn {
+        width: 150px;
+        margin: 20px auto 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .dot-btn button {
+        height: 13px;
+        width: 13px;
+        border-radius: 50%;
+        border: 3px solid #8052ec;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .dot-btn button:nth-child(1) {
+        background-color: #8052ec;
+    }
+    #prev, #next {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        border-radius: 3px;
+        font-size: 18px;
+        border: none;
+        font-weight: bolder;
+        background-color: #8052ec;
+        margin: auto;
+        color: #fff;
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+    #prev {
+        left: 15px;
+    }
+    #next {
+        right: 15px;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="img-container">
+            <img src="./image/11.jpg" class="active" alt="11" id="image1">
+            <img src="./image/12.jpg" alt="12" id="image2">
+            <img src="./image/13.jpg" alt="13" id="image3">
+            <img src="./image/14.jpg" alt="14" id="image4">
+            <img src="./image/15.jpg" alt="15" id="image5">
+        </div>
+        <div class="dot-btn">
+            <button onclick="dots(1)"></button>
+            <button onclick="dots(2)"></button>
+            <button onclick="dots(3)"></button>
+            <button onclick="dots(4)"></button>
+            <button onclick="dots(5)"></button>
+        </div>
+        <button id="prev" onclick="prev()"> &lt;</button>
+        <button id="next" onclick="next()"> &gt;</button>
+
+    </div>
+</body>
+</html>
+
+<script>
+    let i = 0;
+    let j = 5;
+    const dot = document.querySelectorAll('.dot-btn button');
+    let img = document.querySelectorAll('.img-container img');
+    function next() {
+        document.getElementById('image'+ (i + 1)).classList.remove('active');
+        i = (j + i + 1) % j;
+        document.getElementById('image' + (i + 1)).classList.add('active');
+        console.log(i);
+        indicator(i + 1);
+    }
+    function prev() {
+        document.getElementById('image'+ (i + 1)).classList.remove('active');
+        i = (j + i - 1) % j;
+        document.getElementById('image' + (i + 1)).classList.add('active');
+        console.log(i);
+    }
+
+    function indicator(num) {
+         dot.forEach(function(dot) {
+            dot.style.backgroundColor = "transparent";
+         });
+         document.querySelector('.dot-btn button:nth-child(' + num + ')').style.backgroundColor = "#8052ec";
+    }
+    function dots(index) {
+        img.forEach(function(image) {
+            image.classList.remove('active');
+        });
+        document.getElementById('image' + index).classList.add('active');
+        i = index - 1;
+        indicator(index)
+    }
+</script>
