@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>welcome</title>
+    </head>
+    <body>
+        <div>
+            age:
+            <input type="text" id="num1">
+            <button onclick="check()">status check</button>
+            MARKS:
+            <input type="text" id="num2">
+            <button onclick="mark()">mark check</button>
+        </div>
+        <div>
+            ID no :
+            <input type="text" id="v1">
+            <button onclick="finddata()">result status</button>
+            <p id="data"></p>
+        </div>
+        <div>
+            age :
+            <input type="text" id="v2">
+            <button onclick="enter()">enter</button>
+        </div>
+        <div>
+            age2 :
+            <input type="text" id="v3">
+            <button onclick="enterone()">enter</button>
+        </div>
+        <div>
+            number :
+            <input type="text" id="odd">
+            <button onclick="odd()">enter</button>
+        </div>
+        <div>
+            multiple of 5 :
+            <input type="text" id="multiple">
+            <button onclick="multiple()">enter</button>
+        </div>
+        <div>
+            score :
+            <input type="text" id="scored">
+            <button onclick="scored()">enter</button>
+        </div>
+    </body>
+</html>
+<script>
+    var a = 15;
+    let b = "herry";
+    const author = "hello friends";
+    var c = null;
+    var d = undefined;
+    {
+        let b = "this";
+        console.log(b);
+    }
+    console.log(b);
+    console.log(author)
+
+function check() {
+        var a = document.getElementById("num1").value;
+        if (a>= 25) {
+            console.log("you are selected");
+        }
+        else {
+            console.log("not selected");
+        }
+    }
+function mark() {
+    var a = document.getElementById("num2").value;
+    if (a >=85) {
+        console.log("you are got first class")
+    }
+    else if (a >=75) {
+        console.log("you are got second class")
+    }
+    else if (a >=65) {
+        console.log("you are got third class")
+    }
+    else if (a >=55) {
+        console.log("you are got fourth class")
+    }
+    else  {
+        console.log("you are fail")
+    }
+}
+
+function finddata() {
+    var a = document.getElementById("v1").value;
+    switch(a)
+    {
+        case '101' :
+        document.write("name  : Rajesh  <br> marks: 65% <br> Division: First");
+        break;
+        case '102': 
+        document.write("name  : jay  <br> marks: 85% <br> Division: First");
+        break;
+        case '103': 
+        document.write("name  : bharat  <br> marks: 65% <br> Division: second");
+        break;
+        case '104': 
+        document.write("name  : ramesh  <br> marks: 55% <br> Division: third");
+        break;
+        case '105': 
+        document.write("name  : jeeet  <br> marks: 35% <br> Division: fail");
+        break;
+        default: 
+        document.write("invalid data");
+    } 
+}
+
+function enter() {
+    var a = document.getElementById("v2").value;
+    if (a>=18) {
+        console.log("you are eighteen year old")
+    }
+    else {
+        console.log('you are minor')
+    }
+    
+}
+
+function enterone() {
+    var a = document.getElementById("v3").value;
+    if (a>1 && a< 18) {
+        console.log("you are between 1 and 18 year ")
+    }
+    else if (a>18 && a<45) {
+        console.log("you are between 18 to 45 year")
+    }
+    else {
+        console.log('you are 45 + older')
+    }
+}
+
+for(let i=0; i<=15 ; i++) {
+console.log(i);
+}
+
+let num = [1, 2, 3, 4, 5];
+for (let i=0; i<num.length; i++) {
+    console.log(num[i]);
+}
+num.forEach((element) => {
+    console.log(element*element);
+})
+
+// array from
+let name = 'herry';
+let arr = Array.from(name);
+console.log(arr);
+
+// for...of
+for ( let i of num) {
+    console.log(i);
+}
+
+const student = {
+    
+        fullname: "rahul",
+        age: 20,
+        cgpa: 8.2,
+        ispass: true
+};
+student['name'] = "rahul sharma"
+console.log(student.name)
+
+const product = {
+    title: 'ballpen',
+    rating: 4,
+    offer: 5,
+    price: 207
+};
+console.log(product)
+
+
+var c = 5;
+var d = 2;
+console.log('c != d' , c != d);
+
+
+let mode = 'dark';
+let color;
+
+if (mode === 'dark') {
+    color = "black";
+}
+else{
+    color = "white";
+}
+console.log(color);
+
+
+
+
+function odd() {
+    var a = document.getElementById("odd").value;
+    if (a %2 === 0) {
+        console.log(a, 'is even');
+    }
+    else {
+        console.log(a, 'is old');
+    }
+}
+
+
+// turnary operator
+
+let age = 14;
+let result = age >= 18 ? "adult" : "minor";
+console.log(result);
+
+// let hello = prompt("hello");
+// console.log(hello);
+
+
+function multiple() {
+    let a = document.getElementById("multiple").value;
+    if ( a % 5 === 0) {
+        console.log(a, "is multiple of 5")
+    }
+    else {
+        console.log(a, "is not multiple of 5");
+    }
+}
+
+// score card
+function scored() {
+    let score = document.getElementById("scored").value;
+    if (score >= 90 && score <=100) {
+        console.log('your grade is a');
+    }
+    else if (score >= 70 && score <=89) {
+        console.log('your grade is b');
+    }
+    else if (score >= 60 && score <=69) {
+        console.log('your grade is c');
+    }
+    else if (score >= 50 && score <=59) {
+        console.log('your grade is d');
+    }
+    else if (score >= 0 && score <=49) {
+        console.log('your grade is f');
+    }
+    else {
+        console.log("invalid number")
+    }
+}
+
+
+</script>

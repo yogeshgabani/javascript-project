@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>function</title>
+    </head>
+    <body></body>
+</html>
+<script>
+
+
+
+    console.log('hello')
+
+    function hello() {
+        console.log("welcome to our company");
+        console.log("we are learning js")
+    }
+    hello();
+
+    function sum(x, y) {
+        s = x + y;
+        return s;
+    }
+    let value = sum(5,10)
+    console.log(value)
+
+
+    function multiply(a,b) {
+        return a * b;
+    }
+
+    const arrsum = (a,b) => {
+        console.log(a+b)
+    }
+
+    const mul = (a,b) => {
+        console.log(a*b)
+        return a*b;
+    }
+
+
+    function vowels(str) {
+        let count = 0;
+
+        for (const char of str) {
+            if (char === 'a' || char === 'e' || char === 'i' || char === 'o'|| char === 'u') {
+                count++;
+            }
+            console.log(count)
+            
+        }
+        return count;
+    }
+
+    const countvow = (str) => {
+        let count = 0;
+
+    for (const char of str) {
+        if (char === 'a' || char === 'e' || char === 'i' || char === 'o'|| char === 'u') {
+        count++;
+        }
+    console.log(count)
+    
+    }
+    return count;
+    }
+
+
+    let arr = [1,2,3,4,5,6]
+    arr.forEach(function print(val) {
+        console.log(val);
+    })
+
+    let city = ['pune', 'mumbai', 'delhi', 'surat']
+    city.forEach((val, index, city) => {
+        console.log(val.toUpperCase(), index, city)
+    })
+
+
+    let square = ['1', '2','3','4','5']
+    square.forEach ((value) => {
+        console.log(value * value)
+    })
+
+
+    //map method
+
+    let newarr = square.map((value) => {
+        console.log(value)
+        return value * 2;
+    })
+    console.log(newarr)
+
+
+    //filter method
+
+    let newarr1 = square.filter((val) => {
+        return val % 2 === 0;
+    })
+    console.log(newarr1)
+
+    //reduce method
+
+    const out = arr.reduce((index, val) => {
+       return index + val;
+    });
+    console.log(out)
+
+
+
+    let marks = [54,76,87,98,76,99,95,93,65,78,89,91]
+    let mr = marks.filter((val) => {
+        return val > 90;
+    })
+    console.log(mr)
+
+
+
+    let user = prompt('enter number')
+    let ar = [];
+    for (let i = 1; i <= user; i++) {
+        ar[i - 1] = i;
+        
+    }
+    console.log(ar)
+
+    let reduce = ar.reduce((a,b) => {
+        return a + b;
+    })
+    console.log(reduce)
+
+    let red = ar.reduce((a,b) => {
+        return a * b;
+    })
+    console.log(red)
+</script>

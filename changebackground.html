@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change background image</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background: rgb(28,28,35);
+    }
+    .container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .btn {
+        padding: 10px 20px;
+        border: none;
+        color: #fff;
+        border: 2px solid white;
+        width: 120px;
+        height: 100px;
+        margin: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .purple {
+        background-color: purple;
+    }
+    .red {
+        background-color: red;
+    }
+    .yellow {
+        background-color: yellowgreen;
+    }
+    .blue {
+        background-color: blue;
+    }
+    .teal {
+        background-color: teal;
+    }
+    .green {
+        background-color: green;
+    }
+
+</style>
+<body>
+     
+    <div class="container">
+        <nav class="nav">
+            <button class="btn purple">purple</button>
+            <button class="btn red">red</button>
+            <button class="btn blue">blue</button>
+            <button class="btn green">green</button>
+            <button class="btn yellow">yellow</button>
+            <button class="btn teal">teal</button>
+
+        </nav>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    const btns = document.querySelectorAll('.btn');
+    console.log(btns)
+
+    btns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const colorclass = btn.classList[1];
+            changeBackground(colorclass);
+            console.log("hello", colorclass)
+        });
+    });
+
+    function changeBackground(colorclass) {
+        document.body.style.backgroundColor = colorclass;
+    }
+
+   
+</script>

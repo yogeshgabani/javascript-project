@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+            crossorigin="anonymous"
+        >
+        <link rel="stylesheet" href="form.css">
+        <title>calculator</title>
+    </head>
+    <body>
+        <!-- simple calculator -->
+        <div class="container pt-5">
+            <h2>simple calculator</h2>
+            <div class="d-flex align-items-center">
+                <input
+                    class="p-1 form-control"
+                    style="width: unset;"
+                    type="text"
+                    id="input-value"
+                >
+                <button value="c" class="btn btn-info ms-2 px-3" onclick="cleardata()">c</button>
+            </div>
+            <div class="d-flex align-items-center gap-2 pt-2">
+                <button value="1" class="btn btn-dark px-4" onclick="getvalue(1)">1</button>
+                <button value="2" class="btn btn-dark px-4" onclick="getvalue(2)">2</button>
+                <button value="3" class="btn btn-dark px-4" onclick="getvalue(3)">3</button>
+                <button value="/" class="btn btn-dark px-3" onclick="getvalue('/')">/</button>
+            </div>
+            <div class="d-flex align-items-center gap-2 pt-2">
+                <button value="4" class="btn btn-dark px-4" onclick="getvalue(4)">4</button>
+                <button value="5" class="btn btn-dark px-4" onclick="getvalue(5)">5</button>
+                <button value="6" class="btn btn-dark px-4" onclick="getvalue(6)">6</button>
+                <button value="-" class="btn btn-dark px-3" onclick="getvalue('-')">-</button>
+            </div>
+            <div class="d-flex align-items-center gap-2 pt-2">
+                <button value="7" class="btn btn-dark px-4" onclick="getvalue(7)">7</button>
+                <button value="8" class="btn btn-dark px-4" onclick="getvalue(8)">8</button>
+                <button value="9" class="btn btn-dark px-4" onclick="getvalue(9)">9</button>
+                <button value="+" class="btn btn-dark" onclick="getvalue('+')">+</button>
+            </div>
+            <div class="d-flex align-items-center gap-2 pt-2">
+                <button value="." class="btn btn-dark px-4" onclick="getvalue('.')">.</button>
+                <button value="0" class="btn btn-dark px-4" onclick="getvalue(0)">0</button>
+                <button value="=" class="btn btn-success px-4" onclick="execute()">=</button>
+                <button value="*" class="btn btn-dark px-3" onclick="getvalue('*')">*</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="" id="myid">
+                hellow world
+            </div>
+            <button class="btn btn-info" onclick="addclass()">add class</button>
+            <button class="btn btn-info" onclick="removeclass()">remove</button>
+        <button class="btn btn-danger" onclick="toggleclick()">add/remove class</button>
+        <button class="btn btn-info" id="btn1">add listener class</button>
+        <button class="btn btn-info" id="btn2">add mouseover class</button>
+    </div>
+    <div class="pt-3">
+        <button class="btn btn-primary" onclick="addevent()">click button</button>
+        <div class="whatever" id="div1">
+            I am a DIV element
+        </div>
+    </div>
+    <div class="pt-3">
+        <button class="btn btn-warning" onclick="clickme()">click me</button>
+        <div id="change_me"></div>
+    </div>
+    <div class="pt-3" id="fff">
+        <p class="bg-danger text-white p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea repudiandae ad saepe. Mollitia blanditiis facilis recusandae sed atque at eos?</p>
+        <button onclick="togglebutton()">click me</button>
+    </div>
+
+    <div class="d-flex">
+        <div class="bg-danger text-white sidemenu" id="sidemenu">
+            <ul class="list-unstyled">
+                <li>home</li>
+                <li>about</li>
+                <li>services</li>
+                <li>contact</li>
+                <li>portfolio</li>
+                <li>home</li>
+                <li>home</li>
+                <li>home</li>
+                <li>home</li>
+            </ul>
+        </div>
+        <div class="main-menu bg-primary text-white p-3" id="mainmenu">
+            <div>
+                <button class=" btn btn-success d-none" onclick="closemenu()" id="close">close</button>
+                <button class=" btn btn-danger d-md-block d-none hhhhh" onclick="closemenu()" id="close">close</button>
+            </div>
+            <h2>main menu bar</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis nobis pariatur possimus qui accusamus fugiat dolor repellat, perspiciatis harum, rem, quia quibusdam? Natus consequatur possimus, beatae quis ab reiciendis laborum? Maxime dignissimos impedit illum rem consequuntur minima omnis dolor! Numquam natus quidem quos facere doloribus modi nihil fuga adipisci vero velit, atque officia et id provident soluta recusandae aperiam alias. Delectus recusandae illo quis ratione eius vero maxime ipsam iure, dolorum omnis cumque eos fuga, necessitatibus ad optio nesciunt reiciendis mollitia? Consequuntur et iusto asperiores eveniet? Cum ullam neque incidunt illo provident voluptatum, ad eaque nostrum mollitia, est id saepe illum quisquam accusamus dicta deserunt ratione quo cumque libero quaerat laborum, natus itaque vel perspiciatis. Nam doloribus suscipit maiores, unde repellendus autem dolorum, iure ullam porro, neque quo iste voluptas illum fuga totam vel in sequi saepe dolorem aspernatur quisquam incidunt? Quaerat, eum placeat animi molestiae vitae provident porro numquam sint! Laudantium unde ut similique, eaque cum sapiente eos. Temporibus ab deleniti doloremque laudantium excepturi, a praesentium qui itaque voluptatum voluptas exercitationem earum adipisci eligendi. Repellat dolorem quo nulla eum minus alias impedit, sit quae assumenda obcaecati non iure? Perferendis dolorum veniam dolor ipsa ut, sed dolores temporibus, unde, exercitationem maiores non iusto perspiciatis a. Nisi dolores nesciunt magni sint reprehenderit rerum voluptas quod quasi, architecto impedit facilis recusandae exercitationem eius dolor quis? Beatae quibusdam deleniti porro at aut blanditiis voluptatem fugiat voluptates natus ab? Distinctio ipsa iusto temporibus iste quis reiciendis, totam nesciunt fugiat ut cupiditate. Similique, officia magni. Iure exercitationem expedita vitae esse facere minus error! Delectus ut quo, laboriosam reiciendis iste amet corrupti inventore facere numquam error quas molestiae omnis alias accusantium corporis labore possimus quisquam suscipit vitae exercitationem. Debitis, temporibus voluptatum consequuntur neque quod voluptate iusto autem commodi, velit praesentium rem. Explicabo dolor voluptates in iure incidunt quia eum, accusantium quibusdam optio accusamus, enim facilis tempore expedita rerum illo esse fugiat libero molestiae. Vero optio magnam beatae consequatur commodi praesentium ea asperiores. Ab cupiditate hic excepturi non et soluta fugit culpa error quo eveniet, assumenda, architecto enim minus aut ut aperiam provident. Ipsa dignissimos quibusdam vero enim asperiores odio eos, veniam amet saepe commodi ratione dolor nostrum similique nisi id, dolorem doloribus recusandae? Possimus, tempora fugit unde eos deserunt assumenda quo! Voluptatem, quasi doloremque quod quae, atque illo maiores consequuntur veniam iure rerum aliquam totam dolores modi illum officiis ex. Corrupti ipsa natus dignissimos inventore vel.</p>
+        </div>
+        
+    </div>
+    <div class="w-25 hello bg-success">
+        vfvf
+    </div>
+ 
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script>
+    let ClearInput = false;
+    function getvalue(val) {
+        if (ClearInput) {
+            document.getElementById("input-value").value = val;
+            ClearInput = false;
+        } else {
+            document.getElementById("input-value").value += val;
+        }
+    }
+    function cleardata() {
+        document.getElementById('input-value').value = "";
+    }
+    function execute() {
+            let result = document.getElementById('input-value').value;
+            var y = eval(result);
+            result = y;
+            document.getElementById('input-value').value = y;
+            ClearInput = true;
+            console.log(ClearInput);
+    }
+</script>
+<script>
+
+    function addclass() {
+        let x = document.getElementById('myid');
+        x.classList.add("shadow");
+        var para = document.createElement('p');
+        const node = document.createTextNode("This is a new paragraph.");
+        para.appendChild(node);
+        x.appendChild(para)
+        
+        var z = document.createElement('input')
+        z.setAttribute('type', 'text');
+        z.setAttribute('placeholder', 'enter value input');
+        z.classList.add('input-field');
+        // y.appendChild(z)
+        x.appendChild(z);
+
+    }
+    function removeclass() {
+        let x = document.getElementById('myid');
+        x.classList.remove("shadow");
+    var inputs = x.getElementsByTagName('p');
+    console.log(inputs)
+    if (inputs.length > 0) {
+        x.removeChild(inputs[inputs.length - 1]);
+    }
+    }
+
+    function toggleclick() {
+        let x = document.getElementById('myid')
+        x.classList.toggle('active');
+    }
+
+    let addbtn = document.getElementById('btn1');
+    addbtn.addEventListener('click', () => {
+        let x = document.getElementById('myid');
+        x.classList.add('shadow');
+    })
+
+    document.getElementById('btn2').addEventListener('mouseover' , () => {
+        let x = document.getElementById('myid');
+        x.classList.add('shadow');
+    })
+
+    function addevent() {
+        let x = document.getElementById('div1');
+        x.classList.add('mystyle');
+        x.classList.remove('whatever');
+        x.classList.toggle('newClassName')
+    }
+    function clickme() {
+        let x = document.getElementById('change_me');
+        x.classList.add('make_me_blue');
+        setTimeout( () => {
+            x.classList.remove('make_me_blue')
+        }, 3000)
+     
+    }
+    function togglebutton() {
+        let x = document.getElementById('fff');
+        let y = document.querySelector('p')
+                y.classList.add('glass')
+         
+                y.classList.toggle('mydiv')
+    }
+
+    window.addEventListener("resize", () => {
+        let element = document.getElementById('fff');
+        let select = document.querySelector('p')
+  if (window.innerWidth < 900 && window.innerWidth > 700) {
+
+      select.classList.add("one");
+  } 
+  else if (window.innerWidth <= 700 && window.innerWidth > 500) {
+    select.classList.add('two');
+  }
+  else {
+    select.classList.remove('two');
+    select.classList.remove('one');
+
+  }
+});
+
+window.addEventListener('resize', () => {
+    let element = document.getElementById('fff')
+    element.classList.add('active')
+})
+
+window.addEventListener('resize', () => {
+    let element = document.getElementById('sidemenu');
+    let element2 = document.getElementById('mainmenu');
+    let closeone = document.getElementById('close');
+    if (window.innerWidth < 992 && window.innerWidth > 768) {
+        element.style.width = '300px';
+    }
+    else if (window.innerWidth < 768 ) {
+        element.style.visibility = 'hidden';
+        element.classList.add('hidesidebar');
+        element.style.width = '0';
+        closeone.classList.add('hhhhhh')
+
+    }
+    else {
+        element.classList.remove('hidesidebar')
+        element.style.visibility = 'visible';
+        element.style.width = '300px';
+        closeone.classList.remove('hhhhhh')
+    }
+})
+function closemenu() {
+    let element = document.getElementById('sidemenu');
+    element.classList.toggle('show');
+}
+
+</script>
+
+
